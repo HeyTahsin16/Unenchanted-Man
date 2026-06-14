@@ -8,9 +8,11 @@ A Discord bot with one job: reply with random images or pre-written sentences, a
 
 | What you type | What happens |
 |---|---|
-| `wcibd` | Bot sends a random image from your GitHub `images/` folder |
+| `wcibd` | Bot sends the next image from a shuffled, no-repeat deck of your GitHub `images/` folder |
 | `wcibd free speech` | If `"free speech"` is a key in `responses.json`, bot sends that sentence |
-| `wcibd unknown thing` | No match → bot sends a random image |
+| `wcibd unknown thing` | No match → bot sends the next image (same deck as above) |
+
+**No-repeat image order:** every image is sent once before any image repeats, and an image is never immediately followed by itself — even right after a reshuffle. This lives in the bot's memory (no extra storage needed), so a restart just starts a fresh shuffle. The first image after startup can be anything; from then on, consecutive images are always different.
 
 **Reply behaviour:** if you use `wcibd` while replying to someone, the bot responds to *that person's* message — not yours. Perfect for clapping back on behalf of the server.
 
